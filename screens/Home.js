@@ -30,7 +30,7 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   style: {
-    backgroundColor: "#CFD2DA",
+    backgroundColor: "#fff",
     paddingTop: height * 0.04,
     flex: 1,
   },

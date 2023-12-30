@@ -40,9 +40,12 @@ export default function Post() {
                   <Text style={styles.postHash}># Entertainment</Text>
                 </View>
                 <Text style={styles.postContent}>{post.newsContent}</Text>
-                <TouchableOpacity style={styles.readMoreButton}>
-                  <Text style={styles.readMoreButtonText}>Read More</Text>
-                </TouchableOpacity>
+                <View style={styles.flex}>
+                  <Text style={styles.postHash}>1 min ago</Text>
+                  <TouchableOpacity style={styles.postHash}>
+                    <Text style={styles.readMoreButtonText}>Read More</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           ))}
@@ -55,10 +58,15 @@ const styles = StyleSheet.create({
   postContainer: {},
   postWrapper: {
     height: "max-content",
-    marginHorizontal: 15,
-    marginVertical: 5,
+    marginHorizontal: 10,
+    marginVertical: 10,
     borderRadius: 15,
     flexDirection: "column",
+  },
+  flex: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   postImage: {
     height: height * 0.25,
@@ -67,9 +75,11 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 15,
   },
   postText: {
-    height: 170,
+    height: "max-content",
     backgroundColor: "#fff",
-    padding: 10,
+    paddingTop: 10,
+    paddingBottom: 15,
+    paddingHorizontal: 15,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
   },
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   readMoreButton: {
-    marginLeft: 10,
+    justifyContent: "flex-end",
     marginTop: 2,
     paddingVertical: 7,
     backgroundColor: "#CFD2DA",
