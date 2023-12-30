@@ -8,27 +8,35 @@ import {
   Dimensions,
 } from "react-native";
 import axios from "axios";
+import Ip from "../utils/Ip";
 // import news from ""
 const { height, width } = Dimensions.get("window");
 
 export default function Post() {
   const [data, setData] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://${Ip}:4000/feed`);
+      setData(response.data.data);
+      // console.log(data.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://10.25.194.7:4000/feed");
-        setData(response.data.data);
-        console.log(data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
     fetchData();
+
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <View>
+    <View style={styles.box}>
       <View style={styles.postContainer}>
         {Array.isArray(data) &&
           data.map((post) => (
@@ -42,18 +50,9 @@ export default function Post() {
 
               <View style={styles.postText}>
                 <View style={styles.title}>
-                  <Text style={styles.postTitle}>
-                    {post.title}
-                    {/* " ህወሓት " ያጋጠመው ችግር ከባድ መሆኑና የሚፈታውም በጉባኤ መሆኑ ተገለጸ። */}
-                  </Text>
-                  {/* <Text style={styles.postHash}># Entertainment</Text> */}
+                  <Text style={styles.postTitle}>{post.title}</Text>
                 </View>
-                <Text style={styles.postContent}>
-                  {/* የህዝባዊ ወያነ ሓርነት ትግራይ (ህወሓት) ማዕከላዊ ኮሚቴና የህወሓት ማዕከላዊ የቁጥጥር ኮሚሽን
-                  ዛሬ በጋራ ባወጡት ባለ 4 ነጥብ የአቋም መግለጫ ድርጅቱን ያጋጠሙት ችግሮች ከባድ መሆናቸውን እና
-                  እነዚህ ችግሮች ሊፈቱ የሚችሉት በጉባኤ መሆኑን ገልጸዋል። */}
-                  {post.newsContent}
-                </Text>
+                <Text style={styles.postContent}>{post.preview}</Text>
                 <View style={styles.flex}>
                   <Text style={styles.postHash}>ከ 1 ደቂቃ በፊት</Text>
                   <TouchableOpacity style={styles.postHash}>
@@ -69,6 +68,9 @@ export default function Post() {
 }
 
 const styles = StyleSheet.create({
+  box: {
+    marginBottom: 20,
+  },
   postContainer: {
     marginTop: -15,
   },
@@ -78,6 +80,9 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 10,
     flexDirection: "column",
+    borderColor: "#CFD2DA",
+    // borderWidth: 2,
+    borderRadius: 10,
   },
   flex: {
     borderTopColor: "black",

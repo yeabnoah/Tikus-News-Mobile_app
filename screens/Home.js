@@ -33,10 +33,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingTop: height * 0.04,
     flex: 1,
+    // marginBottom: 50,
   },
   container: {
     backgroundColor: "#fff",
     flex: 1,
+    // marginBottom: 10,
   },
 });
 
