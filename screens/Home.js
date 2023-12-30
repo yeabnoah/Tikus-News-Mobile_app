@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    backgroundColor: "#CFD2DA",
+    backgroundColor: "#fff",
     flex: 1,
   },
 });

@@ -15,35 +15,44 @@ export default function Choice() {
     <View style={styles.body}>
       <View style={styles.flex}>
         <FontAwesome name="filter" size={23} color="black" />
-        <Text style={styles.Category}>Category</Text>
+        <Text style={styles.Category}>የኔ ምርጫዎች</Text>
       </View>
 
       <View style={styles.container}>
         <TouchableOpacity style={styles.BtnContainer}>
-          <Text style={styles.BtnText}>Trending</Text>
+          <Text style={styles.BtnText}>አዲስ ነገር</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.BtnContainer}>
-          <Text style={styles.BtnText}>Breaking</Text>
+          <Text style={styles.BtnText}>ሰበር ዜና</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.BtnContainer}>
-          <Text style={styles.BtnText}>Politics</Text>
+          <Text style={styles.BtnText}>የፖለቲካ ዜናዎች</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.container}>
         <TouchableOpacity style={styles.BtnContainer}>
-          <Text style={styles.BtnText}>Entertainment</Text>
+          <Text style={styles.BtnText}>መዝናኛ</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.BtnContainer}>
-          <Text style={styles.BtnText}>Business</Text>
+          <Text style={styles.BtnText}>ቢዝነስ</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.BtnContainer}>
-          <Text style={styles.BtnText}>Sport</Text>
+          <Text style={styles.BtnText}>ስፖርት</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.BtnContainer}>
+          <Text style={styles.BtnText}>የአሁን</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.flexer}>
+        <FontAwesome name="newspaper-o" size={23} color="black" />
+        <Text style={styles.Category}>ዜናዎች</Text>
       </View>
     </View>
   );
@@ -54,8 +63,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     marginLeft: 10,
-    // backgroundColor: "red",
-    // width: 130,
     justifyContent: "center",
     // paddingTop: 10,
     paddingLeft: 3,
@@ -64,6 +71,17 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1.5,
     borderStyle: "dashed",
     marginBottom: 10,
+  },
+
+  flexer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingLeft: 3,
+    borderBottomColor: "#CFD2DA",
+    // borderBottomWidth: 1.5,
+    borderStyle: "dashed",
+    marginTop: 30,
   },
   body: {
     marginVertical: height * 0.02,
@@ -76,13 +94,14 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "row",
+    // marginR: -5,
   },
   Category: {
     fontSize: 20,
     fontWeight: "600",
     flex: 1,
     marginHorizontal: 10,
-    marginBottom: 10,
+    marginBottom: 5,
   },
   BtnContainer: {
     justifyContent: "center",
@@ -92,7 +111,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderColor: "#fff",
     justifyContent: "center",
-    marginHorizontal: 10,
+    marginRight: 10,
+    marginLeft: 7,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 4,

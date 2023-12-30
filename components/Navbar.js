@@ -7,6 +7,7 @@ import {
   TextInput,
 } from "react-native";
 import React from "react";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const { height, width } = Dimensions.get("window");
@@ -24,14 +25,17 @@ export default function Navbar() {
         />
         <AntDesign name="search1" style={styles.logo2} />
       </View> */}
-      {/* <Text style={styles.name}>NEWSPAPER</Text> */}
+
       <View style={styles.name}>
-        <Image
+        {/* <Image
           style={styles.Image}
           source={{
             uri: "https://i0.wp.com/cleanfeed.thetvroom.com/media/2021/07/bbc-logo-current-001-01.png?resize=647%2C287&ssl=1",
           }}
-        />
+        /> */}
+
+        <FontAwesome5 name="hotjar" size={28} color="black" />
+        <Text style={styles.logoText}>ትኩስ-ዜና</Text>
       </View>
     </View>
   );
@@ -53,10 +57,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     textAlign: "center",
-    // fontSize: width * 0.06,
-    // fontWeight: "300",
-    // paddingTop: height * 0.004,
-    // marginLeft: width * -0.09,
+    paddingTop: height * 0.004,
+    marginLeft: width * -0.09,
+  },
+  logoText: {
+    fontSize: 30,
+    fontWeight: "800",
+    marginLeft: 5,
   },
   logo: {
     fontSize: width * 0.11,
