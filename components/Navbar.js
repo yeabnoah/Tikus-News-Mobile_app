@@ -9,13 +9,21 @@ import {
 import React from "react";
 import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { height, width } = Dimensions.get("window");
 
-export default function Navbar() {
+export default function Navbar({ navigation }) {
   return (
     <View style={styles.Navbar}>
-      <AntDesign name="bars" style={styles.logo3} />
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Admin");
+        }}
+      >
+        <AntDesign name="bars" style={styles.logo3} />
+      </TouchableOpacity>
+
       {/* <MaterialCommunityIcons name="email-newsletter" style={styles.logo} /> */}
       {/* <View style={styles.navInput}>
         <TextInput

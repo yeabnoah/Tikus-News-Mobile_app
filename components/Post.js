@@ -35,7 +35,7 @@ export default function Post() {
             <View key={post._id} style={styles.postWrapper}>
               <Image
                 source={{
-                  uri: "https://gdb.voanews.com/B50E42F2-8D04-4F94-BD61-AED525998E96_w1200_r1.jpg",
+                  uri: post.imgUrl,
                 }}
                 style={styles.postImage}
               />
@@ -43,14 +43,16 @@ export default function Post() {
               <View style={styles.postText}>
                 <View style={styles.title}>
                   <Text style={styles.postTitle}>
-                    " ህወሓት " ያጋጠመው ችግር ከባድ መሆኑና የሚፈታውም በጉባኤ መሆኑ ተገለጸ።
+                    {post.title}
+                    {/* " ህወሓት " ያጋጠመው ችግር ከባድ መሆኑና የሚፈታውም በጉባኤ መሆኑ ተገለጸ። */}
                   </Text>
                   {/* <Text style={styles.postHash}># Entertainment</Text> */}
                 </View>
                 <Text style={styles.postContent}>
-                  የህዝባዊ ወያነ ሓርነት ትግራይ (ህወሓት) ማዕከላዊ ኮሚቴና የህወሓት ማዕከላዊ የቁጥጥር ኮሚሽን
+                  {/* የህዝባዊ ወያነ ሓርነት ትግራይ (ህወሓት) ማዕከላዊ ኮሚቴና የህወሓት ማዕከላዊ የቁጥጥር ኮሚሽን
                   ዛሬ በጋራ ባወጡት ባለ 4 ነጥብ የአቋም መግለጫ ድርጅቱን ያጋጠሙት ችግሮች ከባድ መሆናቸውን እና
-                  እነዚህ ችግሮች ሊፈቱ የሚችሉት በጉባኤ መሆኑን ገልጸዋል።
+                  እነዚህ ችግሮች ሊፈቱ የሚችሉት በጉባኤ መሆኑን ገልጸዋል። */}
+                  {post.newsContent}
                 </Text>
                 <View style={styles.flex}>
                   <Text style={styles.postHash}>ከ 1 ደቂቃ በፊት</Text>

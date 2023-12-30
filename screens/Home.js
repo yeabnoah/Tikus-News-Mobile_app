@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.style}>
       <ScrollView style={styles.container}>
-        <Navbar />
+        <Navbar navigation={navigation} />
         <Choice />
         <Post />
       </ScrollView>
