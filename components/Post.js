@@ -9,20 +9,26 @@ import {
 } from "react-native";
 import axios from "axios";
 import Ip from "../utils/Ip";
-// import news from ""
+import datamo from "../utils/data";
+
 const { height, width } = Dimensions.get("window");
 
-export default function Post() {
+export default function Post({ navigation }) {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://${Ip}:4000/feed`);
       setData(response.data.data);
-      // console.log(data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+
+  const fetchDataId = (post) => {
+    axios.get(`http://${Ip}:4000/feed/${post._id}`).then((response) => {
+      console.log(response.data);
+    });
   };
 
   useEffect(() => {
@@ -55,8 +61,20 @@ export default function Post() {
                 <Text style={styles.postContent}>{post.preview}</Text>
                 <View style={styles.flex}>
                   <Text style={styles.postHash}>ከ 1 ደቂቃ በፊት</Text>
-                  <TouchableOpacity style={styles.postHash}>
-                    <Text style={styles.readMoreButtonText}>ማንበብ ይቅጥሉ</Text>
+                  <TouchableOpacity
+                    style={styles.postHash}
+                    onPress={() => {
+                      navigation.navigate("More");
+                    }}
+                  >
+                    <Text
+                      onPress={() => {
+                        fetchDataId(post);
+                      }}
+                      style={styles.readMoreButtonText}
+                    >
+                      ማንበብ ይቅጥሉ
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>

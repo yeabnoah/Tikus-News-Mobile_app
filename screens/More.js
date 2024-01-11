@@ -9,20 +9,19 @@ import {
   ScrollView,
   useState,
 } from "react-native";
-import axios from "axios";
-import Navbar from "../components/Navbar";
-import Choice from "../components/Choice";
-import Post from "../components/Post";
+import Navbar from "../components/Admin/Navbar";
+import MoreNews from "../components/More/MoreNews";
+import MoreBottom from "../components/More/MoreBottom";
 
 const { height, width } = Dimensions.get("window");
 
-const Home = ({ navigation }) => {
+const More = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.style}>
       <ScrollView style={styles.container}>
-        <Navbar navigation={navigation} />
-        <Choice />
-        <Post navigation={navigation} />
+        {/* <Navbar /> */}
+        <MoreNews />
+        <MoreBottom />
       </ScrollView>
     </SafeAreaView>
   );
@@ -31,7 +30,7 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   style: {
     backgroundColor: "#fff",
-    paddingTop: height * 0.04,
+    // paddingTop: height * 0.04,
     flex: 1,
     // marginBottom: 50,
   },
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default More;
